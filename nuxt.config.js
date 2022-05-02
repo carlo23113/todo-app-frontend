@@ -51,7 +51,7 @@ export default {
   apollo: {
     clientConfigs: {
       default: {
-        httpEndpoint: process.env.BACKEND_API_URL
+        httpEndpoint: "https://aqueous-tundra-49742.herokuapp.com/graphql"
       }
     }
   },
