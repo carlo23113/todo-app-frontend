@@ -162,15 +162,18 @@ export default {
     dragOptions: {
       animation: 300,
       disabled: false,
-    }
+    },
+    skipQuery: false,
   }),
   computed: {
     user() {
-        return JSON.parse(localStorage.user);
+      return JSON.parse(localStorage.user)
     },
-    skipQuery() {
-      return this.$store.state.global.skipAllQuery
-    },
+  },
+  created() {
+    this.$eventBus.$on('skipQuery', () => {
+      this.skipQuery = true
+    })
   },
   methods: {
     async addTaskList() {

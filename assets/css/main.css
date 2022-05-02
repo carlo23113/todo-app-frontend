@@ -1,0 +1,124 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@800&display=swap');
+
+* {
+    font-family: 'Montserrat', sans-serif;
+}
+
+::-webkit-scrollbar {
+    width: 5px;
+    height: 8px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    display: none;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: rgb(184, 184, 184);
+    border-radius: 5px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: rgb(160, 160, 160); 
+}
+
+.login-container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+}
+
+#graphics-div {
+    height: 100vh;
+    width: 100%;
+    padding: 3rem 2rem;
+    position: relative;
+    background-color: rgb(247, 247, 247);
+    text-align: center;
+}
+
+#app-title {
+    color: #ff8a80;
+    font-weight: bold;
+    font-size: 1.5rem;
+}
+
+#quote {
+    color: #757575;
+}
+
+#vector {
+    width: 80%;
+    margin: auto;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+#login-form-div {
+    height: 100%;
+    width: 100%;
+    display: grid;
+    place-items: center;
+}
+
+#login-form {
+    width: 50%;
+}
+
+#login-title {
+    font-size: clamp(1.4rem, 3vw, 2rem);
+    font-weight: bold;
+    color: #ff8a80;
+}
+
+#login-subtitle {
+    margin-bottom: 2rem;
+    font-size: clamp(0.6rem, 2vw, 0.8rem);
+    color: #757575;
+}
+
+#social-logins {
+    display: grid;
+    grid-template-columns: 20% 20% 20%;
+    place-content: center;
+}
+
+.social-icons {
+    width: 20px;
+}
+
+#social-logins-label {
+    width: 100%;
+    text-align: center;
+    border-bottom: 1px solid #757575;
+    color: #757575;
+    line-height: 0.1em;
+    margin: 2rem 0;
+}
+
+#social-logins-label span {
+    background: #fff;
+    padding: 0 10px;
+}
+
+#sign-up {
+    margin-top: 1.5rem;
+    font-size: 0.8em;
+    text-align: center;
+}
+
+@media only screen and (max-width: 426px) {
+    #graphics-div {
+        display: none;
+    }
+
+    #login-form {
+        width: 75%;
+    }
+}

@@ -2,8 +2,8 @@ export const state = () => ({
     skipAllQuery: false,
 })
 
-export const mutation = () => ({
-    skipAllQuery(value) {
+export const mutations = () => ({
+    skipQuery(value) {
         this.skipAllQuery = value;
     }
 })
