@@ -1,0 +1,13 @@
+overwrite: true
+schema:
+  - "${BACKEND_API_URL}"
+documents: "./graphql/**/*.gql"
+generates:
+  ./apollo/types/graphql.d.ts:
+    - typescript-graphql-files-modules
+  ./apollo/types/types.ts:
+    - typescript
+    - typescript-operations
+  ./apollo/fragments/possibleTypes.ts:
+    plugins:
+      - fragment-matcher
