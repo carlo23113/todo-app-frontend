@@ -40,14 +40,8 @@
           <v-btn type="submit" color="primary" block rounded :loading="loading"
             >Signup</v-btn
           >
-
           <div id="social-logins-label"><span>Or Signup with</span></div>
-
-          <div id="social-logins">
-            <v-btn icon><v-img class="social-icons" :src="google" /> </v-btn>
-            <v-btn icon><v-img class="social-icons" :src="facebook" /> </v-btn>
-            <v-btn icon><v-img class="social-icons" :src="github" /> </v-btn>
-          </div>
+          <social-logins />
           <div id="sign-up">
             Already have an account?
             <nuxt-link to="/login">Login</nuxt-link>
@@ -60,9 +54,6 @@
 
 <script>
 import vector from '@/assets/todo-vector.svg'
-import google from '@/assets/google-icon.png'
-import facebook from '@/assets/facebook-icon.png'
-import github from '@/assets/github-icon.png'
 import { register } from '@/graphql/Auth.js'
 import { Toast } from '@/assets/js/Swal.js'
 export default {
@@ -70,9 +61,6 @@ export default {
   middleware: ['unauthenticated'],
   data: () => ({
     vector,
-    google,
-    facebook,
-    github,
     signupData: {
       email: '',
       password: '',

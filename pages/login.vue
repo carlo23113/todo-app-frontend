@@ -38,17 +38,7 @@
 
           <div id="social-logins-label"><span>Or Login with</span></div>
 
-          <div id="social-logins">
-            <v-btn @click="socialLogin('google')" icon
-              ><v-img class="social-icons" :src="google" />
-            </v-btn>
-            <v-btn @click="socialLogin('facebook')" icon
-              ><v-img class="social-icons" :src="facebook" />
-            </v-btn>
-            <v-btn @click="socialLogin('github')" icon
-              ><v-img class="social-icons" :src="github" />
-            </v-btn>
-          </div>
+          <social-logins />
           <div id="sign-up">
             Don't have an account?
             <nuxt-link to="/signup">Sign up for free</nuxt-link>
@@ -61,9 +51,6 @@
 
 <script>
 import vector from '@/assets/todo-vector.svg'
-import google from '@/assets/google-icon.png'
-import facebook from '@/assets/facebook-icon.png'
-import github from '@/assets/github-icon.png'
 import { login } from '@/graphql/Auth.js'
 import { Toast } from '@/assets/js/Swal.js'
 export default {
@@ -71,9 +58,6 @@ export default {
   middleware: ['unauthenticated'],
   data: () => ({
     vector,
-    google,
-    facebook,
-    github,
     loginData: {
       email: '',
       password: '',
@@ -124,9 +108,6 @@ export default {
           })
           .catch(() => (this.loading = false))
       } else this.loading = false
-    },
-    socialLogin(service) {
-      window.location.href = `${this.$config.baseUrl}/api/auth/login/${service}`
     },
 
     loginWithToken(token) {
