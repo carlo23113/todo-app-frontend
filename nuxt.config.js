@@ -30,6 +30,11 @@ export default {
     { src: '~plugins/EventBus.js', ssr: false },
   ],
 
+  publicRuntimeConfig: {
+    baseUrl: process.env.NODE_ENV === 'production' ? process.env.PROD_BASE_URL : process.env.LOCAL_BASE_URL,
+    gqlUrl: process.env.NODE_ENV === 'production' ? process.env.PROD_GRAPHQL_API_URL : process.env.LOCAL_GRAPHQL_API_URL
+  },
+
   // Auto import components: https://go.nuxtjs.dev/config-components
   components: true,
 
@@ -53,7 +58,7 @@ export default {
   apollo: {
     clientConfigs: {
       default: {
-        httpEndpoint: "https://aqueous-tundra-49742.herokuapp.com/graphql"
+        httpEndpoint: "http://127.0.0.1:8000/graphql"
       }
     }
   },
@@ -61,7 +66,7 @@ export default {
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {
     // Workaround to avoid enforcing hard-coded localhost:3000: https://github.com/nuxt-community/axios-module/issues/308
-    baseURL: '/',
+    baseURL: 'http://127.0.0.1:8000/',
   },
 
   // PWA module configuration: https://go.nuxtjs.dev/pwa

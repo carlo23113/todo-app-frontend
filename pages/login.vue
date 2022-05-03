@@ -39,9 +39,15 @@
           <div id="social-logins-label"><span>Or Login with</span></div>
 
           <div id="social-logins">
-            <v-btn icon><v-img class="social-icons" :src="google" /> </v-btn>
-            <v-btn icon><v-img class="social-icons" :src="facebook" /> </v-btn>
-            <v-btn icon><v-img class="social-icons" :src="github" /> </v-btn>
+            <v-btn @click="socialLogin('google')" icon
+              ><v-img class="social-icons" :src="google" />
+            </v-btn>
+            <v-btn @click="socialLogin('facebook')" icon
+              ><v-img class="social-icons" :src="facebook" />
+            </v-btn>
+            <v-btn @click="socialLogin('github')" icon
+              ><v-img class="social-icons" :src="github" />
+            </v-btn>
           </div>
           <div id="sign-up">
             Don't have an account?
@@ -80,6 +86,14 @@ export default {
     valid: false,
     loading: false,
   }),
+  created() {
+    const queryString = window.location.search
+    const urlParams = new URLSearchParams(queryString)
+    const token = urlParams.get('token')
+    if (token) {
+      this.loginWithToken(token)
+    }
+  },
   methods: {
     async login() {
       this.loading = true
@@ -104,13 +118,20 @@ export default {
               })
             } else {
               const jwt = data.login.access_token
-              this.$apolloHelpers.onLogin(jwt)
-              this.$router.push('/')
+              this.loginWithToken(jwt)
             }
             this.loading = false
           })
           .catch(() => (this.loading = false))
       } else this.loading = false
+    },
+    socialLogin(service) {
+      window.location.href = `${this.$config.baseUrl}/api/auth/login/${service}`
+    },
+
+    loginWithToken(token) {
+      this.$apolloHelpers.onLogin(token)
+      this.$router.push('/')
     },
   },
 }
