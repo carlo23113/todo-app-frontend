@@ -31,7 +31,7 @@ export default {
   ],
 
   publicRuntimeConfig: {
-    baseUrl: 'https://aqueous-tundra-49742.herokuapp.com',
+    baseUrl: 'https://kanban-board-app-01.herokuapp.com',
   },
 
   // Auto import components: https://go.nuxtjs.dev/config-components
@@ -57,7 +57,7 @@ export default {
   apollo: {
     clientConfigs: {
       default: {
-        httpEndpoint: "https://aqueous-tundra-49742.herokuapp.com/graphql"
+        httpEndpoint: "https://kanban-board-app-01.herokuapp.com/graphql"
       }
     }
   },
